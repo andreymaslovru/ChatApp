@@ -24,7 +24,7 @@ const RootNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerTintColor: 'white',
-        headerStyle: {backgroundColor: 'green'},
+        headerStyle: {backgroundColor: 'green', shadowOpacity: 0, elevation: 0},
         headerTitleAlign: 'left',
         headerTitleStyle: {
           fontWeight: 'bold',
