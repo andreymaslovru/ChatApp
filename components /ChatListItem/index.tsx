@@ -1,14 +1,18 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {MaskedViewComponent, TouchableOpacity} from 'react-native';
 import {View, Text, Image} from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
+import moment from 'moment';
 
 const ChatListItem = props => {
   const {chatRoom} = props;
   const user = chatRoom?.users[1];
   console.log(user, 'gergergere');
+  console.log(chatRoom, 'chatRoomchatRoomchatRoom');
+  
   return (
     <TouchableOpacity
+      onPress={() => console.log('click chat')}
       style={{
         minHeight: 90,
         padding: 16,
@@ -29,9 +33,11 @@ const ChatListItem = props => {
       <View style={{justifyContent: 'flex-start'}}>
         <View style={{flexDirection: 'row', marginBottom: 8}}>
           <Text>{user?.name}</Text>
-          <Text>{chatRoom?.lastMessage.createdAt}</Text>
+          <Text>{moment(chatRoom?.lastMessage.createdAt).format('YYYY MM DD')}</Text>
         </View>
-        <Text style={{width: 150}} numberOfLines={1}>{chatRoom?.lastMessage.content}</Text>
+        <Text style={{width: 150}} numberOfLines={1}>
+          {chatRoom?.lastMessage.content}
+        </Text>
       </View>
 
       <View style={{justifyContent: 'center'}}>
