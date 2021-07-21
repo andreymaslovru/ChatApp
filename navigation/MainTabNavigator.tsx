@@ -5,6 +5,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 
 import IconEntypo from 'react-native-vector-icons/Entypo';
+import ChatListItem from '../components /ChatListItem';
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -29,13 +30,13 @@ export const MainTabNavigator = () => {
         name="Camera"
         component={TabOneScreen}
         options={{
-          tabBarIcon: ({color: string}) => (
+          tabBarIcon: () => (
             <IconEntypo name="camera" size={18} color="white" />
           ),
           tabBarLabel: () => null,
         }}
       />
-      <TopTab.Screen name="Chats" component={TabTwoScreen} />
+      <TopTab.Screen name="Chats" component={ChatListItem} />
       <TopTab.Screen name="Status" component={TabTwoScreen} />
       <TopTab.Screen name="Calls" component={TabTwoScreen} />
     </TopTab.Navigator>
