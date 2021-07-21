@@ -3,11 +3,16 @@ import {View, Text} from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import ChatListItem from '../components /ChatListItem';
 import data from '../assets/data';
+import {FlatList} from 'react-native-gesture-handler';
 
 const ChatScreen = () => {
   return (
     <View>
-      <ChatListItem chatRoom={'fsdfsd'} />
+      <FlatList
+        data={data}
+        renderItem={({item}) => <ChatListItem chatRoom={item} />}
+        keyExtractor={item => item.id}
+      />
     </View>
   );
 };
