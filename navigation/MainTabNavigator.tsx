@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+
+import IconEntypo from 'react-native-vector-icons/Entypo';
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -17,14 +18,26 @@ export const MainTabNavigator = () => {
         },
         indicatorStyle: {
           backgroundColor: 'white',
-          height: 5,
+          height: 4,
         },
         labelStyle: {
           fontWeight: 'bold',
         },
+        showIcon: true,
       }}>
-      <TopTab.Screen name="TopTwo" component={TabOneScreen} />
-      <TopTab.Screen name="TopOne" component={TabTwoScreen} />
+      <TopTab.Screen
+        name="Camera"
+        component={TabOneScreen}
+        options={{
+          tabBarIcon: ({color: string}) => (
+            <IconEntypo name="camera" size={18} color="white" />
+          ),
+          tabBarLabel: () => null,
+        }}
+      />
+      <TopTab.Screen name="Chats" component={TabTwoScreen} />
+      <TopTab.Screen name="Status" component={TabTwoScreen} />
+      <TopTab.Screen name="Calls" component={TabTwoScreen} />
     </TopTab.Navigator>
   );
 };

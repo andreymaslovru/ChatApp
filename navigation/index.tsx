@@ -45,11 +45,11 @@ const RootNavigator = () => {
               }}>
               <IconAntDesign
                 name="search1"
-                size={24}
+                size={16}
                 color="white"
                 style={{marginRight: 16}}
               />
-              <IconEntypo name="dots-three-vertical" size={24} color="white" />
+              <IconEntypo name="dots-three-vertical" size={16} color="white" />
             </View>
           ),
         }}
