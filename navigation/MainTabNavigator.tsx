@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import TabOneScreen from '../screens/TabOneScreen';
+import ChatScreen from '../screens/ChatScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 
 import IconEntypo from 'react-native-vector-icons/Entypo';
@@ -28,7 +28,7 @@ export const MainTabNavigator = () => {
       }}>
       <TopTab.Screen
         name="Camera"
-        component={TabOneScreen}
+        component={ChatScreen}
         options={{
           tabBarIcon: () => (
             <IconEntypo name="camera" size={18} color="white" />

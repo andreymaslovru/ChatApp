@@ -3,7 +3,8 @@ import {TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 
-const ChatListItem = () => {
+const ChatListItem = props => {
+  const {chatRoom} = props;
   return (
     <TouchableOpacity
       style={{
@@ -26,7 +27,7 @@ const ChatListItem = () => {
           <Text>Firstname Lastname</Text>
           <Text>11/15/19</Text>
         </View>
-        <Text>LAST MESSAGE</Text>
+        <Text>{chatRoom}</Text>
       </View>
 
       <View style={{justifyContent: 'center'}}>
