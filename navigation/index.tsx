@@ -58,7 +58,9 @@ const RootNavigator = () => {
       <Stack.Screen
         name="ChatRoom"
         component={ChatRoomScreen}
-        options={{title: 'ChatRoom'}}
+        options={({route}) => ({
+          title: route.params.information.users[1].name,
+        })}
       />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>
