@@ -8,6 +8,19 @@ import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommun
 
 const InputTypeMessage = () => {
   const [message, setMessage] = useState('');
+
+  const onMicroPress = () => {
+    console.log('micro press');
+  };
+
+  const onSendPress = () => {
+    console.log('send press');
+  };
+
+  const onPressButton = () => {
+    !message ? onMicroPress() : onSendPress();
+  };
+
   return (
     <View
       style={{
@@ -19,7 +32,7 @@ const InputTypeMessage = () => {
         style={{
           flexDirection: 'row',
           backgroundColor: 'white',
-          width: '80%',
+          width: '85%',
           borderRadius: 50,
           padding: 10,
           margin: 10,
@@ -40,6 +53,7 @@ const InputTypeMessage = () => {
         <IconSimpleLineIcons name="paper-clip" size={18} color="grey" />
       </View>
       <TouchableOpacity
+        onPress={() => onPressButton()}
         style={{
           width: 40,
           height: 40,
