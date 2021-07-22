@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, TouchableOpacity, TextInput} from 'react-native';
 import {styles} from './style';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import IconSimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const InputTypeMessage = () => {
+  const [message, setMessage] = useState('');
   return (
     <View
       style={{
@@ -26,8 +28,15 @@ const InputTypeMessage = () => {
           paddingHorizontal: 16,
         }}>
         <IconSimpleLineIcons name="emotsmile" size={18} color="grey" />
-        <TextInput placeholder="Type to message" style={styles.input} />
-        <IconEntypo name="camera" size={18} color="grey"  />
+        <TextInput
+          placeholder="Type to message"
+          value={message}
+          onChangeText={setMessage}
+          style={styles.input}
+          numberOfLines={4}
+          multiline
+        />
+        <IconEntypo name="camera" size={18} color="grey" />
         <IconSimpleLineIcons name="paper-clip" size={18} color="grey" />
       </View>
       <TouchableOpacity
@@ -39,7 +48,11 @@ const InputTypeMessage = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <IconFontAwesome5 name="microphone" size={18} color="white" />
+        {!message ? (
+          <IconFontAwesome5 name="microphone" size={18} color="white" />
+        ) : (
+          <IconMaterialCommunityIcons name="send" size={18} color="white" />
+        )}
       </TouchableOpacity>
     </View>
   );
