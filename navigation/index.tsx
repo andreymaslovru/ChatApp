@@ -8,6 +8,7 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import {View} from 'react-native';
 import MainTabNavigator from './MainTabNavigator';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
 
 export default function Navigation() {
   return (
@@ -53,6 +54,11 @@ const RootNavigator = () => {
             </View>
           ),
         }}
+      />
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={{title: 'ChatRoom'}}
       />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>

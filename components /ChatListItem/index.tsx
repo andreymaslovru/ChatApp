@@ -5,14 +5,20 @@ import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import moment from 'moment';
 import {styles} from './style';
 
+import {useNavigation} from '@react-navigation/native';
+
 const ChatListItem = props => {
   const {chatRoom} = props;
   const user = chatRoom?.users[1];
 
+  const navigation = useNavigation();
+
+  const onClick = () => {
+    navigation.navigate('ChatRoom');
+  };
+
   return (
-    <TouchableOpacity
-      onPress={() => console.log('click chat')}
-      style={styles.containerItem}>
+    <TouchableOpacity onPress={onClick} style={styles.containerItem}>
       <Image source={{uri: user?.imageUri}} style={styles.avatar} />
       <View style={styles.infoWrapper}>
         <View style={styles.topInfo}>
