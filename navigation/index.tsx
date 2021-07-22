@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconEntypo from 'react-native-vector-icons/Entypo';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import {View} from 'react-native';
@@ -60,6 +61,28 @@ const RootNavigator = () => {
         component={ChatRoomScreen}
         options={({route}) => ({
           title: route.params.information.users[1].name,
+          headerRight: () => (
+            <View style={{flexDirection: 'row'}}>
+              <IconFontAwesome
+                name="video-camera"
+                size={16}
+                style={{marginRight: 16}}
+                color="white"
+              />
+              <IconFontAwesome
+                name="phone"
+                size={16}
+                style={{marginRight: 16}}
+                color="white"
+              />
+              <IconEntypo
+                name="dots-three-vertical"
+                size={16}
+                color="white"
+                style={{marginRight: 16}}
+              />
+            </View>
+          ),
         })}
       />
       <Stack.Screen name="NotFound" component={NotFoundScreen} />
