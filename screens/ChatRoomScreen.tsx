@@ -21,6 +21,7 @@ const ChatRoomScreen = () => {
 
   return (
     <KeyboardAvoidingView
+      keyboardVerticalOffset={80}
       behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
       <ImageBackground source={BG} style={{width: '100%', height: '100%'}}>
         <FlatList
