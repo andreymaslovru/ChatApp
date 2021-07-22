@@ -43,6 +43,36 @@ export default {
       },
     },
     {
+      id: 'm1',
+      content:
+        'How are you, Lukas!What about you?What about you?What about you?What about you?',
+      createdAt: '2020-10-10T12:48:00.000Z',
+      user: {
+        id: 'u1',
+        name: 'Vadim',
+      },
+    },
+    {
+      id: 'm2',
+      content:
+        'I am good, goodWhat about you?What about you?What about you?What about you?What about you?What about you?',
+      createdAt: '2020-10-03T14:49:00.000Z',
+      user: {
+        id: 'u2',
+        name: 'Lukas',
+      },
+    },
+    {
+      id: 'm3',
+      content:
+        'What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?What about you?',
+      createdAt: '2020-10-03T14:49:40.000Z',
+      user: {
+        id: 'u2',
+        name: 'Lukas',
+      },
+    },
+    {
       id: 'm4',
       content: 'Good as well, preparing for the stream now.',
       createdAt: '2020-10-03T14:50:00.000Z',
@@ -63,7 +93,7 @@ export default {
     {
       id: 'm6',
       content:
-        'It is a bit tough, as I have 2 specializations. How about yours? Do you enjoy it?',
+        'What about you?What about you?What about you?What about you?What about you?It is a bit tough, as I have 2 specializations. How about yours? Do you enjoy it?',
       createdAt: '2020-10-03T14:49:00.000Z',
       user: {
         id: 'u2',
