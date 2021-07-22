@@ -1,13 +1,20 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
-import {View} from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableOpacityBase,
+  View,
+  Image,
+  Text
+} from 'react-native';
 import MainTabNavigator from './MainTabNavigator';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 
@@ -20,6 +27,8 @@ export default function Navigation() {
 }
 
 const Stack = createStackNavigator();
+
+//const navigation = useNavigation();
 
 const RootNavigator = () => {
   return (
@@ -59,8 +68,26 @@ const RootNavigator = () => {
       <Stack.Screen
         name="ChatRoom"
         component={ChatRoomScreen}
-        options={({route}) => ({
-          title: route.params.information.users[1].name,
+        options={({navigation, route}) => ({
+          headerTitle: () => (
+            <Text style={{paddingLeft: 16, color: 'white', fontWeight: 'bold'}}>{route.params.information.users[1].name}</Text>
+          ),
+          headerLeft: () => (
+            <View style={{flexDirection: 'row-reverse', alignItems: 'center', justifyContent: 'center', marginRight: 20}}>
+              <Image
+                style={{height: 35, width: 35, borderRadius: 50}}
+                source={{uri: route.params.information.users[1].imageUri}}
+              />
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <IconMaterialIcons
+                  name="arrow-back-ios"
+                  size={16}
+                  style={{marginRight: 8}}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+          ),
           headerRight: () => (
             <View style={{flexDirection: 'row'}}>
               <IconFontAwesome
