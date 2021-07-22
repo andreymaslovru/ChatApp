@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, FlatList, ImageBackground} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Text,
+  FlatList,
+  ImageBackground,
+  Platform,
+} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 
 import dataMessages from '../assets/dataMessages';
@@ -14,9 +20,11 @@ const ChatRoomScreen = () => {
   console.log(information, 'informationinformationinformation');
 
   return (
-    <View style={{flex: 1}}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
       <ImageBackground source={BG} style={{width: '100%', height: '100%'}}>
         <FlatList
+          keyboardShouldPersistTaps="handled"
           data={dataMessages.messages}
           renderItem={({item}) => <ChatMessage message={item} />}
           keyExtractor={item => item.id}
@@ -25,7 +33,7 @@ const ChatRoomScreen = () => {
           inverted
         />
       </ImageBackground>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
