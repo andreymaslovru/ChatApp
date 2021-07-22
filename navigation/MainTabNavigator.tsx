@@ -28,7 +28,7 @@ export const MainTabNavigator = () => {
       }}>
       <TopTab.Screen
         name="Camera"
-        component={ChatScreen}
+        component={TabTwoScreen}
         options={{
           tabBarIcon: () => (
             <IconEntypo name="camera" size={18} color="white" />
@@ -36,7 +36,7 @@ export const MainTabNavigator = () => {
           tabBarLabel: () => null,
         }}
       />
-      <TopTab.Screen name="Chats" component={ChatListItem} />
+      <TopTab.Screen name="Chats" component={ChatScreen} />
       <TopTab.Screen name="Status" component={TabTwoScreen} />
       <TopTab.Screen name="Calls" component={TabTwoScreen} />
     </TopTab.Navigator>
