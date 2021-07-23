@@ -8,11 +8,10 @@ import {
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 
-import dataMessages from '../assets/dataMessages';
-import ChatMessage from '../components /ChatMessage';
-
-import BG from '../assets/BG.png';
-import InputTypeMessage from '../components /InputTypeMessage';
+import dataMessages from '../../assets/dataMessages';
+import ChatMessage from '../../components /ChatMessage/index';
+import BG from '../../assets/BG.png';
+import InputTypeMessage from '../../components /InputTypeMessage/index';
 
 const ChatRoomScreen = () => {
   const route = useRoute();

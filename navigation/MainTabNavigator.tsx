@@ -1,11 +1,10 @@
 import React from 'react';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import ChatScreen from '../screens/ChatScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import {TabTwoScreen} from '../screens/TabTwoScreen';
 
 import IconEntypo from 'react-native-vector-icons/Entypo';
-import ChatListItem from '../components /ChatListItem';
+import ChatScreen from '../screens/ChatScreen/index';
 
 const TopTab = createMaterialTopTabNavigator();
 

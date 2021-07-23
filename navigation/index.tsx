@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
@@ -7,16 +7,9 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import NotFoundScreen from '../screens/NotFoundScreen';
-import {
-  TouchableOpacity,
-  TouchableOpacityBase,
-  View,
-  Image,
-  Text
-} from 'react-native';
-import MainTabNavigator from './MainTabNavigator';
-import ChatRoomScreen from '../screens/ChatRoomScreen';
+import {TouchableOpacity, View, Image, Text} from 'react-native';
+import {MainTabNavigator} from './MainTabNavigator';
+import ChatRoomScreen from '../screens/ChatRoomScreen/index';
 
 export default function Navigation() {
   return (
@@ -27,8 +20,6 @@ export default function Navigation() {
 }
 
 const Stack = createStackNavigator();
-
-//const navigation = useNavigation();
 
 const RootNavigator = () => {
   return (
@@ -70,10 +61,18 @@ const RootNavigator = () => {
         component={ChatRoomScreen}
         options={({navigation, route}) => ({
           headerTitle: () => (
-            <Text style={{paddingLeft: 16, color: 'white', fontWeight: 'bold'}}>{route.params.information.users[1].name}</Text>
+            <Text style={{paddingLeft: 16, color: 'white', fontWeight: 'bold'}}>
+              {route.params.information.users[1].name}
+            </Text>
           ),
           headerLeft: () => (
-            <View style={{flexDirection: 'row-reverse', alignItems: 'center', justifyContent: 'center', marginRight: 20}}>
+            <View
+              style={{
+                flexDirection: 'row-reverse',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: 20,
+              }}>
               <Image
                 style={{height: 35, width: 35, borderRadius: 50}}
                 source={{uri: route.params.information.users[1].imageUri}}
@@ -112,7 +111,6 @@ const RootNavigator = () => {
           ),
         })}
       />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} />
     </Stack.Navigator>
   );
 };
