@@ -10,6 +10,7 @@ import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TouchableOpacity, View, Image, Text} from 'react-native';
 import {MainTabNavigator} from './MainTabNavigator';
 import ChatRoomScreen from '../screens/ChatRoomScreen/index';
+import {styles} from './style';
 
 export default function Navigation() {
   return (
@@ -38,18 +39,12 @@ const RootNavigator = () => {
         options={{
           title: 'WhatsApp',
           headerRight: () => (
-            <View
-              style={{
-                flexDirection: 'row',
-                width: 60,
-                justifyContent: 'space-between',
-                marginRight: 16,
-              }}>
+            <View style={styles.headerRightBox}>
               <IconAntDesign
                 name="search1"
                 size={16}
                 color="white"
-                style={{marginRight: 16}}
+                style={styles.iconRightIndent}
               />
               <IconEntypo name="dots-three-vertical" size={16} color="white" />
             </View>
@@ -61,20 +56,14 @@ const RootNavigator = () => {
         component={ChatRoomScreen}
         options={({navigation, route}) => ({
           headerTitle: () => (
-            <Text style={{paddingLeft: 16, color: 'white', fontWeight: 'bold'}}>
+            <Text style={styles.title}>
               {route.params.information.users[1].name}
             </Text>
           ),
           headerLeft: () => (
-            <View
-              style={{
-                flexDirection: 'row-reverse',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginRight: 20,
-              }}>
+            <View style={styles.headerLeftBox}>
               <Image
-                style={{height: 35, width: 35, borderRadius: 50}}
+                style={styles.iconLeft}
                 source={{uri: route.params.information.users[1].imageUri}}
               />
               <TouchableOpacity onPress={() => navigation.goBack()}>
