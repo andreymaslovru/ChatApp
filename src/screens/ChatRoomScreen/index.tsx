@@ -10,7 +10,7 @@ import {useRoute} from '@react-navigation/native';
 
 import dataMessages from '../../assets/dataMessages';
 import ChatMessage from '../../components /ChatMessage/index';
-import BG from '../../assets/BG.png';
+import background from '../../assets/image/background.png';
 import InputTypeMessage from '../../components /InputTypeMessage/index';
 
 const ChatRoomScreen = () => {
@@ -22,7 +22,9 @@ const ChatRoomScreen = () => {
     <KeyboardAvoidingView
       keyboardVerticalOffset={80}
       behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
-      <ImageBackground source={BG} style={{width: '100%', height: '100%'}}>
+      <ImageBackground
+        source={background}
+        style={{width: '100%', height: '100%'}}>
         <FlatList
           keyboardShouldPersistTaps="handled"
           data={dataMessages.messages}
