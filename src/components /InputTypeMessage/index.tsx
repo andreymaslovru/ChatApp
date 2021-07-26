@@ -23,23 +23,9 @@ const InputTypeMessage = () => {
 
   return (
     <View
-      style={{
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'center',
-      }}>
+      style={styles.container}>
       <View
-        style={{
-          flexDirection: 'row',
-          backgroundColor: 'white',
-          width: '85%',
-          borderRadius: 50,
-          padding: 10,
-          margin: 10,
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingHorizontal: 16,
-        }}>
+        style={styles.inputBox}>
         <IconSimpleLineIcons name="emotsmile" size={18} color="grey" />
         <TextInput
           placeholder="Type to message"
@@ -54,14 +40,7 @@ const InputTypeMessage = () => {
       </View>
       <TouchableOpacity
         onPress={() => onPressButton()}
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: 50,
-          backgroundColor: 'green',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+        style={styles.buttonAction}>
         {!message ? (
           <IconFontAwesome5 name="microphone" size={18} color="white" />
         ) : (
